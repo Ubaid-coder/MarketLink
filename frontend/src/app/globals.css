@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+/* =========================================================
+   MARKETLINK — eGreen Basket Global Theme
+   ========================================================= */
+
+:root {
+  /* Main Theme */
+  --background: #fafaf7;
+  --foreground: #1f2937;
+
+  --primary: #166534;
+  --primary-hover: #14532d;
+  --secondary: #22c55e;
+  --primary-light: #dcfce7;
+
+  --accent: #f59e0b;
+
+  --card: #ffffff;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+
+  --danger: #dc2626;
+}
+
+/*
+  IMPORTANT:
+  MarketLink currently uses a LIGHT UI.
+
+  Do NOT automatically switch the whole application to dark
+  mode based on the operating system, otherwise our white
+  cards/forms and dark text become inconsistent.
+*/
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html {
+  background: var(--background);
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make form controls inherit our light theme */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  color: #1f2937;
+}
+
+/* =========================================================
+   IMPORTANT FORM FIX
+   ========================================================= */
+
+/*
+  This fixes the main problem:
+  browsers/dark OS themes can otherwise make inputs,
+  selects and date/time controls difficult to read.
+*/
+
+input,
+textarea,
+select {
+  color-scheme: light;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  background-color: #ffffff;
+  color: #1f2937;
+  border-color: #e5e7eb;
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+/* Select options */
+select option {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+/* Date/time controls */
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"] {
+  background-color: #ffffff;
+  color: #1f2937;
+  color-scheme: light;
+}
+
+/* Number inputs */
+input[type="number"] {
+  background-color: #ffffff;
+  color: #1f2937;
+}
+
+/* Autofill fix — Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #1f2937;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* =========================================================
+   STANDARD MARKETLINK INPUT
+   ========================================================= */
+
+.filter-input {
+  width: 100%;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
+
+  padding: 0.75rem 1rem;
+
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+
+  outline: none;
+
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    background-color 150ms ease;
+}
+
+.filter-input::placeholder {
+  color: #9ca3af !important;
+  opacity: 1;
+}
+
+.filter-input:hover:not(:disabled) {
+  border-color: #d1d5db;
+}
+
+.filter-input:focus {
+  border-color: #22c55e;
+
+  box-shadow:
+    0 0 0 3px rgba(34, 197, 94, 0.12);
+}
+
+/* Disabled */
+.filter-input:disabled {
+  cursor: not-allowed;
+
+  background-color: #f3f4f6 !important;
+  color: #6b7280 !important;
+
+  opacity: 1;
+}
+
+/* Read only */
+.filter-input:read-only {
+  background-color: #f9fafb;
+}
+
+/* Select */
+select.filter-input {
+  cursor: pointer;
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+/* Textarea */
+textarea.filter-input {
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+/* =========================================================
+   CHECKBOXES / RADIO
+   ========================================================= */
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #166534;
+}
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+  background: #bbf7d0;
+  color: #14532d;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
